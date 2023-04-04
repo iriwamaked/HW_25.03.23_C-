@@ -83,31 +83,54 @@ namespace HW_25._03._23
     {
         static void Main(string[] args)
         {
-            Article article= new Article(1, "Apple", 1.5f, ArticleType.Food);
-            article.Print();
-            Article article2 = new Article(6, "Бензин", 3.99f, ArticleType.UnTypeProduct);
-            article2.Print();
-            Console.WriteLine("\n\tВведите идентификтор продукта: ");
-            ushort id=ushort.Parse(Console.ReadLine());
-            Console.WriteLine("\n\tВведите название продукта: ");
-            string name = Console.ReadLine();
-            Console.WriteLine("\n\tВведите цену продукта: ");
-            float price = float.Parse(Console.ReadLine());
-            Console.WriteLine("\n\tВведите категорию продукта (от 0 до 6), где" +
-                "0 - неизвестный тип, 1 - еда, 2 - вещи, 3 - бытовая химия, 4 - личная гигена, 5 - игрушки.");
-            int tmp = Int32.Parse(Console.ReadLine());
-            if (tmp<0||tmp>5)
-            {
-                tmp = 0;
-            }
-            ArticleType type = (ArticleType)Enum.GetValues(typeof(ArticleType)).GetValue(tmp);
-            Article newArticle= new Article(id, name, price, type);
-            newArticle.Print();
-            Console.WriteLine("\n\t" + newArticle.TYPE);
-            type = (ArticleType)Enum.GetValues(typeof(ArticleType)).GetValue(3);
-            newArticle.TYPE = type;
-            Console.WriteLine("\n\t" + newArticle.TYPE);
-            newArticle.Print();
+            //Article article= new Article(1, "Apple", 1.5f, ArticleType.Food);
+            //article.Print();
+            //Article article2 = new Article(6, "Бензин", 3.99f, ArticleType.UnTypeProduct);
+            //article2.Print();
+            //Console.WriteLine("\n\tВведите идентификтор продукта: ");
+            //ushort id=ushort.Parse(Console.ReadLine());
+            //Console.WriteLine("\n\tВведите название продукта: ");
+            //string name = Console.ReadLine();
+            //Console.WriteLine("\n\tВведите цену продукта: ");
+            //float price = float.Parse(Console.ReadLine());
+            //Console.WriteLine("\n\tВведите категорию продукта (от 0 до 6), где" +
+            //    "0 - неизвестный тип, 1 - еда, 2 - вещи, 3 - бытовая химия, 4 - личная гигена, 5 - игрушки.");
+            //int tmp = Int32.Parse(Console.ReadLine());
+            //if (tmp<0||tmp>5)
+            //{
+            //    tmp = 0;
+            //}
+            //ArticleType type = (ArticleType)Enum.GetValues(typeof(ArticleType)).GetValue(tmp);
+            //Article newArticle= new Article(id, name, price, type);
+            //newArticle.Print();
+            //Console.WriteLine("\n\t" + newArticle.TYPE);
+            //type = (ArticleType)Enum.GetValues(typeof(ArticleType)).GetValue(3);
+            //newArticle.TYPE = type;
+            //Console.WriteLine("\n\t" + newArticle.TYPE);
+            //newArticle.Print();
+            //Console.ReadLine();
+
+            Student student = new Student();
+            Console.Write("\n\tВведите фамилию студента: ");
+            student.LastName= Console.ReadLine();
+            Console.Write("\n\tВведите имя студента: ");
+            student.FirstName= Console.ReadLine();
+            Console.Write("\n\tВведите отчество студента: ");
+            student.FatherName= Console.ReadLine();
+            Console.Write("\n\tВведите группу студента: ");
+            student.Group= Console.ReadLine();
+            Console.Write("\n\tВведите возраст студента: ");
+            student.Age=int.Parse(Console.ReadLine());
+            Console.Write("\n\tВведите оценки по программированию: ");
+            student.ProgrammMark=new int[] {int.Parse(Console.ReadLine()), int.Parse(Console.ReadLine()), int.Parse(Console.ReadLine())};
+            Console.Write("\n\tВведите оценки по администрированию: ");
+            student.AdminMark = new int[] { int.Parse(Console.ReadLine()), int.Parse(Console.ReadLine()), int.Parse(Console.ReadLine()) };
+            Console.Write("\n\tВведите оценки по дизайну: ");
+            student.DesignMark = new int[] { int.Parse(Console.ReadLine()), int.Parse(Console.ReadLine()), int.Parse(Console.ReadLine()) };
+            Console.WriteLine("\n\tДанные студента: ");
+            Console.WriteLine(student.ToString());
+            student.SetProgrammMark(2, 12);
+            Console.WriteLine("\n\tСредний бал по программированию: {0}", student.GetProgrammAverage());
             Console.ReadLine();
         }
     }
